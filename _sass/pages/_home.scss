@@ -2,6 +2,7 @@
 @use '../abstracts/breakpoints' as bp;
 @use '../abstracts/placeholders';
 
+/* #post-list styles */
 #post-list {
   margin-top: 2rem;
 
@@ -104,6 +105,7 @@
   }
 } /* #post-list */
 
+/* Pagination styles */
 .pagination {
   color: var(--text-color);
   font-family: Lato, sans-serif;
