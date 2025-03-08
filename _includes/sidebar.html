@@ -7,7 +7,15 @@
         {%- capture avatar_url -%}
           {% include media-url.html src=site.avatar %}
         {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        {%- if site.avatar_hover != empty and site.avatar_hover -%}
+          {%- capture avatar_hover_url -%}
+            {% include media-url.html src=site.avatar_hover %}
+          {%- endcapture -%}
+          <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" class="default-avatar">
+          <img src="{{- avatar_hover_url -}}" width="112" height="112" alt="avatar-hover" class="hover-avatar">
+        {%- else -%}
+          <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar">
+        {%- endif -%}
       {%- endif -%}
     </a>
 
@@ -19,24 +27,23 @@
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
       <!-- home -->
-      <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
+      <!-- <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
-          <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+          <span>Home</span>
         </a>
-      </li>
-      <!-- the real tabs -->
-      {% for tab in site.tabs %}
-        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }}"></i>
-            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+      </li> -->
+      <!-- the pages on sidebar -->
+      {% for item in site.data.navigation %}
+      {% unless item.hidden %}
+        <li class="nav-item{% if item.url == page.url %}{{ " active" }}{% endif %}">
+          <a href="{{ item.url | relative_url }}" class="nav-link">
+            <i class="fa-fw {{ item.icon }}"></i>
+            <span>{{ item.title | upcase }}</span>
           </a>
         </li>
-        <!-- .nav-item -->
-      {% endfor %}
+      {% endunless %}
+    {% endfor %}
     </ul>
   </nav>
 

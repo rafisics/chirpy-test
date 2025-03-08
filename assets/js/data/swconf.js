@@ -12,8 +12,8 @@ const swconf = {
     resources: [
       '{{ "/assets/css/:THEME.css" | replace: ':THEME', site.theme | relative_url }}',
       '{{ "/" | relative_url }}',
-      {% for tab in site.tabs %}
-        '{{- tab.url | relative_url -}}',
+      {% for page in site.pages %}
+        '{{- page.url | relative_url -}}',
       {% endfor %}
 
       {% assign cache_list = site.static_files | where: 'swcache', true %}
