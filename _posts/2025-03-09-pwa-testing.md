@@ -10,3 +10,5 @@ math: true
 ---
 
 Testing PWA pop-up (09.03.25)
+
+Testing again by updating the workflow.
