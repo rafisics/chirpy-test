@@ -9,6 +9,6 @@ pin: true
 math: true
 ---
 
-Testing PWA pop-up (07.04.25)
+Testing PWA pop-up (07.04.25).
 
 Testing again by updating the workflow.
