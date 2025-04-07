@@ -15,7 +15,7 @@ description: This is a collection of some resources on different topics.
 
 ## H2
 
-The ToC is enabled globally on `post` and `page` layout. 
+The ToC is enabled globally on `post` and `page` layout and also the PWA issue. 
 
 
 ### H3 
