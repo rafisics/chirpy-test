@@ -73,10 +73,14 @@ panel_includes:
   {% endif %}
   
   <!-- pageviews -->
-  <div style="text-align: right;">
-    <img  
-      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frafisics.github.io%2F{{ page.url }}&count_bg=%230036FF&title=Views&edge_flat=false"
-      alt="page-views"
-    />
-  </div>
+  {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
+    <div class="post-meta text-muted" style="text-align: right;">
+      <span>
+        <em id="pageviews">
+          <i class="fas fa-spinner fa-spin small"></i>
+        </em>
+        {{ site.data.locales[lang].post.pageview_measure }}
+      </span>
+    </div>
+  {% endif %}
 </article>
