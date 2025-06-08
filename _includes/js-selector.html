@@ -72,7 +72,7 @@
 {% endif %}
 
 <!-- Pageviews -->
-{% if page.layout == 'post' %}
+{% if page.layout == 'post' or page.layout == 'page' %}
   {% assign provider = site.pageviews.provider %}
 
   {% if provider and provider != empty %}
